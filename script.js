@@ -3,10 +3,43 @@ var currentDayEl = $('#currentDay');
     console.log(currentDayEl)
 var currentTimeEl = $('#currentTime');
     console.log(currentTimeEl)
-
+var timeblockEl = $('.timeblock')
+    console.log(timeblockEl)
 // Assemble: Create/select global variables 
-var hoursArray=[9,10,11,12,13,14,15,16,17]
-    console.log(hoursArray)
+var timeArray=[
+    hour1={
+        time:9,
+        hour:9},
+    hour2={
+        time:10,
+        hour:10},
+    hour3={
+        time:11,
+        hour:11},
+    hour4={
+        time:12,
+        hour:12},
+    hour5={
+        time:1,
+        hour:13},
+    hour6={
+        time:2,
+        hour:14},
+    hour7={
+        time:3,
+        hour:15},
+    hour8={
+        time:4,
+        hour:16},
+    hour9={
+        time:5,
+        hour:17},
+        ]
+    console.log(timeArray)
+// var currentHour = moment().format("H")
+//     console.log(currentHour)
+var currentHour = moment().hour()
+console.log(currentHour)
 
 //DISPLAY the current Day and Time
 setInterval(function(){
@@ -17,20 +50,9 @@ setInterval(function(){
     currentDayEl.text(dayFormatted);
     currentTimeEl.text(timeFormatted);
     return    
-    })
+    },1000);
 
-// // These are various attempts to get the current hour that are broken rn:
-// var currentHour = setInterval(function(){
-//     moment().format("H");
-//     return
-//     })
-// console.log(currentHour)
 
-// currenthour = moment().format("H")
-// console.log(currenthour)
 
-// hour = setInterval(function(hour){
-//     hour = moment().format("H")
-//     return
-// })
-// console.log(hour)
+
+
