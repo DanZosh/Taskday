@@ -39,7 +39,7 @@ textarea{
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  /* border-top: 1px dashed #000000; */
   text-align: end;
 }
 
@@ -60,10 +60,12 @@ textarea{
 
 .saveBtn {
   border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top: 1px solid black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   background-color: #06AED5;
   color: white;
+  line-height: 1.5em;
 }
 
 .saveBtn i:hover {
@@ -75,10 +77,45 @@ thead{
   display:none;
 }
 
-.container{
+/* .container{
+  display:flex;
+  flex-direction: row;
+  width:80%;
+
+} */
+/* tr{ */
+  /* width:100%; */
   /* display:flex; */
-  /* width:80%; */
+/* } */
+
+
+/* this is the flex box container */
+#trEl{
+  width:100%;
+  display:flex;
+  margin:1px; 
 }
-tr{
-  width:100%
+/* This contains the time header */
+#thEldiv{
+  width:10%;
+  display:flex;
+  justify-content: flex-end;
+  border-top: 1px dashed #000000;
+
 }
+
+#tdEl1{
+  width:80%;
+  display:flex
+}
+  #textArea{
+    width:100%
+  }
+#tdEl2{
+  width:10%;
+  display:flex
+}
+  #button{
+    /* width:100%; */
+    display:flex
+  }

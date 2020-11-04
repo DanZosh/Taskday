@@ -36,10 +36,10 @@ var timeArray=[
         hour:17},
         ]
     console.log(timeArray)
-// var currentHour = moment().format("H")
-//     console.log(currentHour)
+// toggle between the two lines below to test
 var currentHour = moment().hour()
-console.log(currentHour)
+// var currentHour = 17
+    console.log(currentHour)
 
 //DISPLAY the current Day and Time
 setInterval(function(){
@@ -65,27 +65,32 @@ for (let i = 0; i < timeArray.length; i++) {
 
 
     var trEl = $("<tr>")
+        trEl.prop('id', "trEl")
+    var thEldiv = $("<div>")
+        thEldiv.prop('id', "thEldiv")
     var thEl = $("<th>")
-    thEl.addClass("hour").prop('id', `${hourXhour}`).prop("scope", "row").text(hourXTime)
+        thEl.addClass("hour").prop('id', `${hourXhour}`).prop("scope", "row").text(hourXTime)
     var tdEl1 =  $("<td>")
+        tdEl1.prop('id', "tdEl1")
     var textarea =  $("<textarea>")
-    textarea.addClass("form-control").prop("id", "exampleFormControlTextarea1").prop("rows", "1")
+        textarea.addClass("form-control").prop("id", "textArea").prop("rows", "1")
         if(hourXhour===currentHour){
             textarea.addClass("present");
-        }else if (hourXhour <= currentHour){
+        }else if (hourXhour < currentHour){
             textarea.addClass("past");
-        }else if (hourXhour<currentHour){
+        }else{
             textarea.addClass("future");
         }
 
     var tdEl2 =  $("<td>")
+        tdEl2.prop('id', "tdEl2")
     var button =  $("<button>")
-    button.addClass("btn btn-info saveBtn fas fa-save").prop("type", "submit")
+        button.addClass("btn btn-info saveBtn fas fa-save").prop("type", "submit").prop("id", "button")
 
-
+    thEldiv.append(thEl)
     tdEl1.append(textarea)
     tdEl2.append(button)
-    trEl.append(thEl)
+    trEl.append(thEldiv)
     trEl.append(tdEl1)
     trEl.append(tdEl2)
     timeblockEl.append(trEl)
