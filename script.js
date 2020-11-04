@@ -52,7 +52,55 @@ setInterval(function(){
     return    
     },1000);
 
+//the guts of my for loop are here:
+for (let i = 0; i < timeArray.length; i++) {
+    var hourX = timeArray[i];
+        console.log(hourX)
+    var hourXTime = hourX.time
+        console.log(hourXTime)
+    var hourXhour = hourX.hour
+        console.log(hourXhour)
 
 
 
 
+    var trEl = $("<tr>")
+    var thEl = $("<th>")
+    thEl.addClass("hour").prop('id', `${hourXhour}`).prop("scope", "row").text(hourXTime)
+    var tdEl1 =  $("<td>")
+    var textarea =  $("<textarea>")
+    textarea.addClass("form-control").prop("id", "exampleFormControlTextarea1").prop("rows", "1")
+        if(hourXhour===currentHour){
+            textarea.addClass("present");
+        }else if (hourXhour <= currentHour){
+            textarea.addClass("past");
+        }else if (hourXhour<currentHour){
+            textarea.addClass("future");
+        }
+
+    var tdEl2 =  $("<td>")
+    var button =  $("<button>")
+    button.addClass("btn btn-info saveBtn fas fa-save").prop("type", "submit")
+
+
+    tdEl1.append(textarea)
+    tdEl2.append(button)
+    trEl.append(thEl)
+    trEl.append(tdEl1)
+    trEl.append(tdEl2)
+    timeblockEl.append(trEl)
+
+    // timeblockEl.append(trEl)
+    // timeblockEl.append(thEl)
+    // tdEl1.append(textarea)
+    // timeblockEl.append(tdEl1)
+    // tdEl2.append(button)
+    // timeblockEl.append(tdEl2)
+
+    // console.log(trEl)
+    // console.log(thEl)
+    // console.log(tdEl1)
+    // console.log(textarea)
+    // console.log(tdEl2)
+    // console.log(button)
+}

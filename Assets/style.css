@@ -76,5 +76,9 @@ thead{
 }
 
 .container{
-  display:flex;
+  /* display:flex; */
+  /* width:80%; */
+}
+tr{
+  width:100%
 }
