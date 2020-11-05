@@ -75,11 +75,11 @@ init();
 //CHECK if there are already items stored in local storage.
 function init(){
     //DAN NOTE: I DONT QUITE UNDERSTAND THE SYNTAX BELOW, WHEN I RAN localStorage.getItem(localStorage.timeArray), i got null.
-    var storedTimeArray = localStorage.getItem(localStorage.key(timeArray));
+    var storedTimeArray = localStorage.getItem("locallyStoredTimeArray");
     // var storedTest= storedTimeArray.val();
     //     console.log(storedTest);
         console.log(storedTimeArray);
-    if (storedTimeArray !== "[]"){
+    if (storedTimeArray && storedTimeArray !== "[]"){
     //if true, then, replace timeArray with storedTimeArray
         timeArray=JSON.parse(storedTimeArray);
         
@@ -89,7 +89,9 @@ function init(){
 //CREATE the line items and add them to the page:
 //LOOP over the `timeArray` to create a line for each time object
 function renderTimeArray(){
+    console.log(timeArray)
 for (let i = 0; i < timeArray.length; i++) {
+
         //this gets the ith object in my timeArray
     var hourX = timeArray[i];
         // console.log(hourX)
@@ -188,7 +190,7 @@ function storeTimeArray(event){
 
     }
     //SET timeArray to local storage
-    localStorage.setItem("timeArray", JSON.stringify(timeArray)); 
+    localStorage.setItem("locallyStoredTimeArray", JSON.stringify(timeArray)); 
     // renderTimeArray();  
 
 }
@@ -199,7 +201,8 @@ timeblockEl.on("click","#button", storeTimeArray);
 var clearButtonEl = $("#clearButton")
 console.log(clearButtonEl)
 clearButtonEl.on("click", function(event) {
-    localStorage.setItem("timeArray", JSON.stringify([]));
+    // localStorage.setItem("locallyStoredTimeArray", JSON.stringify([]));
+    localStorage.clear();
     window.location.reload();
 });
 
