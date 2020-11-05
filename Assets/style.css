@@ -19,8 +19,8 @@ textarea{
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
-  box-sizing: border-box;
-  height:285px;
+  /* box-sizing: border-box; */
+  /* height:285px; */
 }
 
 .description{
@@ -86,7 +86,7 @@ thead{
 }
 /* This contains the time header */
 #thEldiv{
-  width:10%;
+  width:7.5%;
   display:flex;
   justify-content: flex-end;
   border-top: 1px dashed #000000;
@@ -95,17 +95,30 @@ thead{
 }
 
 #tdEl1{
-  width:80%;
-  display:flex
+  width:85%;
+  display:flex;
+  /* height:1em; */
 }
   #textArea{
-    width:100%
+    width:100%;
+    line-height: 2.5em;
   }
 #tdEl2{
-  width:10%;
+  width:7.5%;
   display:flex
 }
   #button{
-    /* width:100%; */
-    display:flex
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
+/* .form-control{
+  line-height: 2.5em;
+} */
+
+#currentTime{
+  /* background-color: #ff6961; */
+  color: #ff6961;
+  
+}

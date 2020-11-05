@@ -11,53 +11,52 @@ var timeArray=[
     hour1={
         time:9,
         hour:9,
-        content:"9am",
+        content:"",
     },
     hour2={
         time:10,
         hour:10,
-        content:"10am",
+        content:"",
     },
     hour3={
         time:11,
         hour:11,
-        content:"11am",
+        content:"",
     },
     hour4={
         time:12,
         hour:12,
-        content:"12pm",
+        content:"",
     },
     hour5={
         time:1,
         hour:13,
-        content:"1pm",
+        content:"",
     },
     hour6={
         time:2,
         hour:14,
-        content:"2pm",
+        content:"",
     },
     hour7={
         time:3,
         hour:15,
-        content:"3pm",
+        content:"",
     },
     hour8={
         time:4,
         hour:16,
-        content:"4pm",
+        content:"",
     },
     hour9={
         time:5,
         hour:17,
-        content:"5pm",
+        content:"",
     },
         ]
     console.log(timeArray)
-// toggle between the two lines below to test
+
 var currentHour = moment().hour()
-// var currentHour = 11
     console.log(currentHour)
 
 //DISPLAY the current Day and Time
@@ -66,8 +65,8 @@ setInterval(function(){
     var dayFormatted= time.format("dddd, MMMM do")
     var timeFormatted = time.format("hh:mm:ss")
     // hourFormatted = time.format("H");
-    currentDayEl.text(dayFormatted);
-    currentTimeEl.text(timeFormatted);
+    currentDayEl.text("Today is " + dayFormatted);
+    currentTimeEl.text("Current Time: " + timeFormatted);
     return    
     },1000);
 
@@ -95,11 +94,17 @@ for (let i = 0; i < timeArray.length; i++) {
     var hourX = timeArray[i];
         // console.log(hourX)
     var hourXTime = hourX.time
-        // console.log(hourXTime)
+        console.log(hourXTime)
     var hourXhour = hourX.hour
-        // console.log(hourXhour)
+        console.log(hourXhour)
     var hourXContent = hourX.content
         // console.log(hourXContent)
+    var amPM = ""
+    if (hourXTime < 5 || hourXTime == 12){
+        amPM = " PM";
+    } else{
+        amPM = " AM";
+    }
 
 //FOR each time object CREATE the components of the line items, ADD attributes 
     var trEl = $("<tr>")
@@ -108,7 +113,7 @@ for (let i = 0; i < timeArray.length; i++) {
     var thEldiv = $("<div>")
         thEldiv.prop('id', "thEldiv")
     var thEl = $("<th>")
-        thEl.addClass("hour").prop('id', `${hourXhour}`).prop("scope", "row").text(hourXTime)
+        thEl.addClass("hour").prop('id', `${hourXhour}`).prop("scope", "row").text(hourXTime + amPM)
     var tdEl1 =  $("<td>")
         tdEl1.prop('id', "tdEl1")
     var textarea =  $("<textarea>")
@@ -173,7 +178,7 @@ function storeTimeArray(event){
     // CREATE an if statement that IF lines 166 and 167 are equal, set the content of hour time object to the textArea
         if (elementHour == psuedoIndex){
         // if (1 == 1){
-            console.log("hello");
+            // console.log("hello");
             // console.log(element.content);
             // console.log(taskItem);
             element.content = taskItem;
@@ -197,3 +202,4 @@ clearButtonEl.on("click", function(event) {
     localStorage.setItem("timeArray", JSON.stringify([]));
     window.location.reload();
 });
+
